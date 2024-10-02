@@ -37,12 +37,12 @@ def exactly_one(iterable: Iterable[T]) -> Result[T, Option[Iterator[T]]]:
     first = next(iterator, marker)
 
     if is_marker(first):
-        return Error(NULL)
+        return Err(NULL)
 
     second = next(iterator, marker)
 
     if not is_marker(second):
-        return Error(Some(chain((first, second), iterator)))
+        return Err(Some(chain((first, second), iterator)))
 
     return Ok(first)
 
@@ -58,6 +58,6 @@ def at_most_one(iterable: Iterable[T]) -> Result[Option[T], Iterator[T]]:
     second = next(iterator, marker)
 
     if not is_marker(second):
-        return Error(chain((first, second), iterator))
+        return Err(chain((first, second), iterator))
 
     return Ok(Some(first))
