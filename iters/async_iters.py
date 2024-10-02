@@ -64,7 +64,7 @@ from wraps.early.decorators import early_option_await
 from wraps.option import Option, Some
 from wraps.result import Result
 from wraps.futures.future import wrap_future
-from wraps.futures.optiion import wrap_future_option
+from wraps.futures.option import wrap_future_option
 from wraps.futures.result import wrap_future_result
 
 from iters.async_utils import (
